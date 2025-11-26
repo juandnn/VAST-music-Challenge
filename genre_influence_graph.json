@@ -1,0 +1,2258 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "Genre": "Oceanus Folk",
+            "ArtistCount": 485,
+            "AvgInfluence": 0.4865979381443299,
+            "TopArtistName": "Filippo Pelli",
+            "InternalInfluence": 276,
+            "ExternalInfluence": 294,
+            "id": "Oceanus Folk"
+        },
+        {
+            "Genre": "Lo-Fi Electronica",
+            "ArtistCount": 132,
+            "AvgInfluence": 1.2651515151515151,
+            "TopArtistName": "Ping Tian",
+            "InternalInfluence": 472,
+            "ExternalInfluence": 165,
+            "id": "Lo-Fi Electronica"
+        },
+        {
+            "Genre": "Indie Folk",
+            "ArtistCount": 1039,
+            "AvgInfluence": 0.48411934552454283,
+            "TopArtistName": "Yang Wan",
+            "InternalInfluence": 562,
+            "ExternalInfluence": 574,
+            "id": "Indie Folk"
+        },
+        {
+            "Genre": "Darkwave",
+            "ArtistCount": 274,
+            "AvgInfluence": 0.36496350364963503,
+            "TopArtistName": "Maciej Siejak",
+            "InternalInfluence": 163,
+            "ExternalInfluence": 139,
+            "id": "Darkwave"
+        },
+        {
+            "Genre": "Speed Metal",
+            "ArtistCount": 103,
+            "AvgInfluence": 0.9805825242718447,
+            "TopArtistName": "Megan Bennett",
+            "InternalInfluence": 261,
+            "ExternalInfluence": 40,
+            "id": "Speed Metal"
+        },
+        {
+            "Genre": "Blues Rock",
+            "ArtistCount": 133,
+            "AvgInfluence": 0.706766917293233,
+            "TopArtistName": "Lori Hall",
+            "InternalInfluence": 137,
+            "ExternalInfluence": 80,
+            "id": "Blues Rock"
+        },
+        {
+            "Genre": "Synthwave",
+            "ArtistCount": 817,
+            "AvgInfluence": 0.5067319461444308,
+            "TopArtistName": "Gang Bai",
+            "InternalInfluence": 407,
+            "ExternalInfluence": 486,
+            "id": "Synthwave"
+        },
+        {
+            "Genre": "Dream Pop",
+            "ArtistCount": 2088,
+            "AvgInfluence": 0.4157088122605364,
+            "TopArtistName": "Catherine Clay",
+            "InternalInfluence": 1298,
+            "ExternalInfluence": 868,
+            "id": "Dream Pop"
+        },
+        {
+            "Genre": "Alternative Rock",
+            "ArtistCount": 344,
+            "AvgInfluence": 0.7441860465116279,
+            "TopArtistName": "The Wandering Pulse",
+            "InternalInfluence": 343,
+            "ExternalInfluence": 259,
+            "id": "Alternative Rock"
+        },
+        {
+            "Genre": "Americana",
+            "ArtistCount": 411,
+            "AvgInfluence": 0.48905109489051096,
+            "TopArtistName": "Jing Cui",
+            "InternalInfluence": 180,
+            "ExternalInfluence": 241,
+            "id": "Americana"
+        },
+        {
+            "Genre": "Southern Gothic Rock",
+            "ArtistCount": 225,
+            "AvgInfluence": 1.208888888888889,
+            "TopArtistName": "Jay Walters",
+            "InternalInfluence": 486,
+            "ExternalInfluence": 225,
+            "id": "Southern Gothic Rock"
+        },
+        {
+            "Genre": "Desert Rock",
+            "ArtistCount": 331,
+            "AvgInfluence": 0.3867069486404834,
+            "TopArtistName": "Kristin Anderson",
+            "InternalInfluence": 98,
+            "ExternalInfluence": 250,
+            "id": "Desert Rock"
+        },
+        {
+            "Genre": "Doom Metal",
+            "ArtistCount": 799,
+            "AvgInfluence": 0.5394242803504381,
+            "TopArtistName": "Leyla Graf-Gotthard",
+            "InternalInfluence": 488,
+            "ExternalInfluence": 415,
+            "id": "Doom Metal"
+        },
+        {
+            "Genre": "Indie Rock",
+            "ArtistCount": 412,
+            "AvgInfluence": 0.49271844660194175,
+            "TopArtistName": "Jing Kang",
+            "InternalInfluence": 299,
+            "ExternalInfluence": 240,
+            "id": "Indie Rock"
+        },
+        {
+            "Genre": "Emo/Pop Punk",
+            "ArtistCount": 42,
+            "AvgInfluence": 1.619047619047619,
+            "TopArtistName": "Xia Wu",
+            "InternalInfluence": 191,
+            "ExternalInfluence": 94,
+            "id": "Emo/Pop Punk"
+        },
+        {
+            "Genre": "Avant-Garde Folk",
+            "ArtistCount": 53,
+            "AvgInfluence": 1.3773584905660377,
+            "TopArtistName": "Yong Zheng",
+            "InternalInfluence": 108,
+            "ExternalInfluence": 127,
+            "id": "Avant-Garde Folk"
+        },
+        {
+            "Genre": "Synthpop",
+            "ArtistCount": 86,
+            "AvgInfluence": 0.47674418604651164,
+            "TopArtistName": "Denise Schroeder",
+            "InternalInfluence": 33,
+            "ExternalInfluence": 53,
+            "id": "Synthpop"
+        },
+        {
+            "Genre": "Post-Apocalyptic Folk",
+            "ArtistCount": 174,
+            "AvgInfluence": 0.367816091954023,
+            "TopArtistName": "Lupe Miró",
+            "InternalInfluence": 71,
+            "ExternalInfluence": 140,
+            "id": "Post-Apocalyptic Folk"
+        },
+        {
+            "Genre": "Indie Pop",
+            "ArtistCount": 115,
+            "AvgInfluence": 1.2,
+            "TopArtistName": "Maik Mude",
+            "InternalInfluence": 185,
+            "ExternalInfluence": 160,
+            "id": "Indie Pop"
+        },
+        {
+            "Genre": "Psychedelic Rock",
+            "ArtistCount": 537,
+            "AvgInfluence": 0.3091247672253259,
+            "TopArtistName": "Florian van Santen-Sanders",
+            "InternalInfluence": 216,
+            "ExternalInfluence": 148,
+            "id": "Psychedelic Rock"
+        },
+        {
+            "Genre": "Symphonic Metal",
+            "ArtistCount": 139,
+            "AvgInfluence": 0.460431654676259,
+            "TopArtistName": "Bekir Bruder",
+            "InternalInfluence": 67,
+            "ExternalInfluence": 88,
+            "id": "Symphonic Metal"
+        },
+        {
+            "Genre": "Space Rock",
+            "ArtistCount": 316,
+            "AvgInfluence": 0.3512658227848101,
+            "TopArtistName": "Min He",
+            "InternalInfluence": 116,
+            "ExternalInfluence": 258,
+            "id": "Space Rock"
+        },
+        {
+            "Genre": "Jazz Surf Rock",
+            "ArtistCount": 259,
+            "AvgInfluence": 0.4749034749034749,
+            "TopArtistName": "Lei Yan",
+            "InternalInfluence": 174,
+            "ExternalInfluence": 187,
+            "id": "Jazz Surf Rock"
+        },
+        {
+            "Genre": "Sea Shanties",
+            "ArtistCount": 1,
+            "AvgInfluence": 0.0,
+            "TopArtistName": "The Salty Wakes",
+            "InternalInfluence": 0,
+            "ExternalInfluence": 0,
+            "id": "Sea Shanties"
+        },
+        {
+            "Genre": "Celtic Folk",
+            "ArtistCount": 1,
+            "AvgInfluence": 0.0,
+            "TopArtistName": "The Fiddle & The Fjord",
+            "InternalInfluence": 0,
+            "ExternalInfluence": 0,
+            "id": "Celtic Folk"
+        },
+        {
+            "Genre": "Acoustic Folk",
+            "ArtistCount": 1,
+            "AvgInfluence": 0.0,
+            "TopArtistName": "Wayfinder's Lament",
+            "InternalInfluence": 0,
+            "ExternalInfluence": 0,
+            "id": "Acoustic Folk"
+        }
+    ],
+    "links": [
+        {
+            "weight": 95,
+            "source": "Oceanus Folk",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 21,
+            "source": "Oceanus Folk",
+            "target": "Americana"
+        },
+        {
+            "weight": 24,
+            "source": "Oceanus Folk",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 15,
+            "source": "Oceanus Folk",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 52,
+            "source": "Oceanus Folk",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 8,
+            "source": "Oceanus Folk",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Oceanus Folk",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Oceanus Folk",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 4,
+            "source": "Oceanus Folk",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 6,
+            "source": "Oceanus Folk",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 6,
+            "source": "Oceanus Folk",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 16,
+            "source": "Oceanus Folk",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 13,
+            "source": "Oceanus Folk",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 1,
+            "source": "Oceanus Folk",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 4,
+            "source": "Oceanus Folk",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Oceanus Folk",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 4,
+            "source": "Oceanus Folk",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 7,
+            "source": "Oceanus Folk",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Oceanus Folk",
+            "target": "Celtic Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Oceanus Folk",
+            "target": "Sea Shanties"
+        },
+        {
+            "weight": 1,
+            "source": "Oceanus Folk",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 1,
+            "source": "Oceanus Folk",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 2,
+            "source": "Oceanus Folk",
+            "target": "Acoustic Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Oceanus Folk",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 43,
+            "source": "Lo-Fi Electronica",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 25,
+            "source": "Lo-Fi Electronica",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 7,
+            "source": "Lo-Fi Electronica",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Lo-Fi Electronica",
+            "target": "Americana"
+        },
+        {
+            "weight": 10,
+            "source": "Lo-Fi Electronica",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 4,
+            "source": "Lo-Fi Electronica",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Lo-Fi Electronica",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 16,
+            "source": "Lo-Fi Electronica",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 14,
+            "source": "Lo-Fi Electronica",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 6,
+            "source": "Lo-Fi Electronica",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 2,
+            "source": "Lo-Fi Electronica",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 6,
+            "source": "Lo-Fi Electronica",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 12,
+            "source": "Lo-Fi Electronica",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Lo-Fi Electronica",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 2,
+            "source": "Lo-Fi Electronica",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 5,
+            "source": "Lo-Fi Electronica",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 6,
+            "source": "Lo-Fi Electronica",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Lo-Fi Electronica",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Lo-Fi Electronica",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 6,
+            "source": "Indie Folk",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 127,
+            "source": "Indie Folk",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 79,
+            "source": "Indie Folk",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Folk",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 35,
+            "source": "Indie Folk",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 119,
+            "source": "Indie Folk",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 9,
+            "source": "Indie Folk",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 9,
+            "source": "Indie Folk",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 33,
+            "source": "Indie Folk",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 24,
+            "source": "Indie Folk",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 24,
+            "source": "Indie Folk",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 10,
+            "source": "Indie Folk",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 32,
+            "source": "Indie Folk",
+            "target": "Americana"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Folk",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 22,
+            "source": "Indie Folk",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 20,
+            "source": "Indie Folk",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 9,
+            "source": "Indie Folk",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Indie Folk",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Folk",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Folk",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 12,
+            "source": "Darkwave",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 42,
+            "source": "Darkwave",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 3,
+            "source": "Darkwave",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 7,
+            "source": "Darkwave",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 6,
+            "source": "Darkwave",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 3,
+            "source": "Darkwave",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Darkwave",
+            "target": "Americana"
+        },
+        {
+            "weight": 17,
+            "source": "Darkwave",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 16,
+            "source": "Darkwave",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 13,
+            "source": "Darkwave",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 4,
+            "source": "Darkwave",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Darkwave",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Darkwave",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Darkwave",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 1,
+            "source": "Darkwave",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Darkwave",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Darkwave",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 1,
+            "source": "Darkwave",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 2,
+            "source": "Speed Metal",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 14,
+            "source": "Speed Metal",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Speed Metal",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 6,
+            "source": "Speed Metal",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Speed Metal",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 3,
+            "source": "Speed Metal",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 2,
+            "source": "Speed Metal",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 1,
+            "source": "Speed Metal",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Speed Metal",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Speed Metal",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Speed Metal",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Speed Metal",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 3,
+            "source": "Speed Metal",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 19,
+            "source": "Blues Rock",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 32,
+            "source": "Blues Rock",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Blues Rock",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Blues Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 9,
+            "source": "Blues Rock",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Blues Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 3,
+            "source": "Blues Rock",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Blues Rock",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 86,
+            "source": "Synthwave",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 84,
+            "source": "Synthwave",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 25,
+            "source": "Synthwave",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 16,
+            "source": "Synthwave",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 92,
+            "source": "Synthwave",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 23,
+            "source": "Synthwave",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 22,
+            "source": "Synthwave",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 5,
+            "source": "Synthwave",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 31,
+            "source": "Synthwave",
+            "target": "Americana"
+        },
+        {
+            "weight": 31,
+            "source": "Synthwave",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 5,
+            "source": "Synthwave",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 17,
+            "source": "Synthwave",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 11,
+            "source": "Synthwave",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 8,
+            "source": "Synthwave",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 13,
+            "source": "Synthwave",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 12,
+            "source": "Synthwave",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 1,
+            "source": "Synthwave",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Synthwave",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Synthwave",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 150,
+            "source": "Dream Pop",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 89,
+            "source": "Dream Pop",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 145,
+            "source": "Dream Pop",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 8,
+            "source": "Dream Pop",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 23,
+            "source": "Dream Pop",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 89,
+            "source": "Dream Pop",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 39,
+            "source": "Dream Pop",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 28,
+            "source": "Dream Pop",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 60,
+            "source": "Dream Pop",
+            "target": "Americana"
+        },
+        {
+            "weight": 24,
+            "source": "Dream Pop",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 40,
+            "source": "Dream Pop",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 10,
+            "source": "Dream Pop",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 32,
+            "source": "Dream Pop",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 17,
+            "source": "Dream Pop",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 5,
+            "source": "Dream Pop",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 32,
+            "source": "Dream Pop",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 59,
+            "source": "Dream Pop",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 7,
+            "source": "Dream Pop",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 4,
+            "source": "Dream Pop",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 3,
+            "source": "Dream Pop",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Dream Pop",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 3,
+            "source": "Dream Pop",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 17,
+            "source": "Alternative Rock",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 38,
+            "source": "Alternative Rock",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 23,
+            "source": "Alternative Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 3,
+            "source": "Alternative Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 5,
+            "source": "Alternative Rock",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 12,
+            "source": "Alternative Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Alternative Rock",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 24,
+            "source": "Alternative Rock",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 17,
+            "source": "Alternative Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 58,
+            "source": "Alternative Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 8,
+            "source": "Alternative Rock",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 19,
+            "source": "Alternative Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 3,
+            "source": "Alternative Rock",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Alternative Rock",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 10,
+            "source": "Alternative Rock",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Alternative Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 2,
+            "source": "Alternative Rock",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 2,
+            "source": "Alternative Rock",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Alternative Rock",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 5,
+            "source": "Alternative Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 5,
+            "source": "Alternative Rock",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Alternative Rock",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 52,
+            "source": "Americana",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 7,
+            "source": "Americana",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 47,
+            "source": "Americana",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 1,
+            "source": "Americana",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 10,
+            "source": "Americana",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 30,
+            "source": "Americana",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 12,
+            "source": "Americana",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 25,
+            "source": "Americana",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 3,
+            "source": "Americana",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 7,
+            "source": "Americana",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 14,
+            "source": "Americana",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 13,
+            "source": "Americana",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 5,
+            "source": "Americana",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 6,
+            "source": "Americana",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 6,
+            "source": "Americana",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Americana",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 1,
+            "source": "Americana",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Americana",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 75,
+            "source": "Southern Gothic Rock",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 25,
+            "source": "Southern Gothic Rock",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 16,
+            "source": "Southern Gothic Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 22,
+            "source": "Southern Gothic Rock",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 36,
+            "source": "Southern Gothic Rock",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 16,
+            "source": "Southern Gothic Rock",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 21,
+            "source": "Southern Gothic Rock",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Southern Gothic Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 3,
+            "source": "Southern Gothic Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 1,
+            "source": "Southern Gothic Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 2,
+            "source": "Southern Gothic Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Southern Gothic Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 2,
+            "source": "Southern Gothic Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Southern Gothic Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 43,
+            "source": "Desert Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 15,
+            "source": "Desert Rock",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 39,
+            "source": "Desert Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 57,
+            "source": "Desert Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 25,
+            "source": "Desert Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 26,
+            "source": "Desert Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 8,
+            "source": "Desert Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 1,
+            "source": "Desert Rock",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 8,
+            "source": "Desert Rock",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 7,
+            "source": "Desert Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 10,
+            "source": "Desert Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Desert Rock",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 4,
+            "source": "Desert Rock",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Desert Rock",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 4,
+            "source": "Desert Rock",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Desert Rock",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 61,
+            "source": "Doom Metal",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 36,
+            "source": "Doom Metal",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 105,
+            "source": "Doom Metal",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 15,
+            "source": "Doom Metal",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 33,
+            "source": "Doom Metal",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 33,
+            "source": "Doom Metal",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Doom Metal",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 13,
+            "source": "Doom Metal",
+            "target": "Americana"
+        },
+        {
+            "weight": 13,
+            "source": "Doom Metal",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 7,
+            "source": "Doom Metal",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 5,
+            "source": "Doom Metal",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 61,
+            "source": "Doom Metal",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 2,
+            "source": "Doom Metal",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 4,
+            "source": "Doom Metal",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 19,
+            "source": "Doom Metal",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 2,
+            "source": "Doom Metal",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Doom Metal",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 1,
+            "source": "Doom Metal",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 2,
+            "source": "Doom Metal",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Doom Metal",
+            "target": "Celtic Folk"
+        },
+        {
+            "weight": 21,
+            "source": "Indie Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 8,
+            "source": "Indie Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 44,
+            "source": "Indie Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 4,
+            "source": "Indie Rock",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 31,
+            "source": "Indie Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 7,
+            "source": "Indie Rock",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 46,
+            "source": "Indie Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 14,
+            "source": "Indie Rock",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 4,
+            "source": "Indie Rock",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 11,
+            "source": "Indie Rock",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Rock",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 5,
+            "source": "Indie Rock",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 7,
+            "source": "Indie Rock",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 13,
+            "source": "Indie Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 7,
+            "source": "Indie Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Indie Rock",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Rock",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Indie Rock",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 4,
+            "source": "Indie Rock",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Rock",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 4,
+            "source": "Indie Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Rock",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 6,
+            "source": "Emo/Pop Punk",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Emo/Pop Punk",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Emo/Pop Punk",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 39,
+            "source": "Emo/Pop Punk",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 15,
+            "source": "Emo/Pop Punk",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 6,
+            "source": "Emo/Pop Punk",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 7,
+            "source": "Emo/Pop Punk",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 9,
+            "source": "Emo/Pop Punk",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Emo/Pop Punk",
+            "target": "Americana"
+        },
+        {
+            "weight": 2,
+            "source": "Emo/Pop Punk",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 2,
+            "source": "Emo/Pop Punk",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Emo/Pop Punk",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Emo/Pop Punk",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Emo/Pop Punk",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 39,
+            "source": "Avant-Garde Folk",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 2,
+            "source": "Avant-Garde Folk",
+            "target": "Americana"
+        },
+        {
+            "weight": 2,
+            "source": "Avant-Garde Folk",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 3,
+            "source": "Avant-Garde Folk",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 18,
+            "source": "Avant-Garde Folk",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 18,
+            "source": "Avant-Garde Folk",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 30,
+            "source": "Avant-Garde Folk",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Avant-Garde Folk",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 6,
+            "source": "Avant-Garde Folk",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 1,
+            "source": "Avant-Garde Folk",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Avant-Garde Folk",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Avant-Garde Folk",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Avant-Garde Folk",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 1,
+            "source": "Avant-Garde Folk",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Avant-Garde Folk",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 14,
+            "source": "Synthpop",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 4,
+            "source": "Synthpop",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 7,
+            "source": "Synthpop",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 3,
+            "source": "Synthpop",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 5,
+            "source": "Synthpop",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 7,
+            "source": "Synthpop",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 3,
+            "source": "Synthpop",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Synthpop",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 2,
+            "source": "Synthpop",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 2,
+            "source": "Synthpop",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 1,
+            "source": "Synthpop",
+            "target": "Americana"
+        },
+        {
+            "weight": 1,
+            "source": "Synthpop",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Synthpop",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Synthpop",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Synthpop",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 12,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 8,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 18,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 33,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 6,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 10,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Americana"
+        },
+        {
+            "weight": 3,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 8,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 13,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 12,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 6,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Post-Apocalyptic Folk",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 25,
+            "source": "Indie Pop",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 61,
+            "source": "Indie Pop",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Pop",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 20,
+            "source": "Indie Pop",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 21,
+            "source": "Indie Pop",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 6,
+            "source": "Indie Pop",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 8,
+            "source": "Indie Pop",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Pop",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 2,
+            "source": "Indie Pop",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Pop",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Indie Pop",
+            "target": "Speed Metal"
+        },
+        {
+            "weight": 2,
+            "source": "Indie Pop",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Indie Pop",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Pop",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Pop",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 1,
+            "source": "Indie Pop",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 40,
+            "source": "Psychedelic Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 17,
+            "source": "Psychedelic Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 12,
+            "source": "Psychedelic Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 7,
+            "source": "Psychedelic Rock",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 14,
+            "source": "Psychedelic Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 4,
+            "source": "Psychedelic Rock",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 5,
+            "source": "Psychedelic Rock",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Psychedelic Rock",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 26,
+            "source": "Psychedelic Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 8,
+            "source": "Psychedelic Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Psychedelic Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 7,
+            "source": "Psychedelic Rock",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Psychedelic Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 2,
+            "source": "Psychedelic Rock",
+            "target": "Indie Pop"
+        },
+        {
+            "weight": 21,
+            "source": "Symphonic Metal",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 16,
+            "source": "Symphonic Metal",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 17,
+            "source": "Symphonic Metal",
+            "target": "Americana"
+        },
+        {
+            "weight": 3,
+            "source": "Symphonic Metal",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 8,
+            "source": "Symphonic Metal",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Symphonic Metal",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 10,
+            "source": "Symphonic Metal",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 2,
+            "source": "Symphonic Metal",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Symphonic Metal",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 3,
+            "source": "Symphonic Metal",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 1,
+            "source": "Symphonic Metal",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 1,
+            "source": "Symphonic Metal",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Symphonic Metal",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 11,
+            "source": "Space Rock",
+            "target": "Jazz Surf Rock"
+        },
+        {
+            "weight": 21,
+            "source": "Space Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 32,
+            "source": "Space Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 68,
+            "source": "Space Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 5,
+            "source": "Space Rock",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 8,
+            "source": "Space Rock",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 21,
+            "source": "Space Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 12,
+            "source": "Space Rock",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 28,
+            "source": "Space Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 4,
+            "source": "Space Rock",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 14,
+            "source": "Space Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 12,
+            "source": "Space Rock",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 4,
+            "source": "Space Rock",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Space Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 12,
+            "source": "Space Rock",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Space Rock",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Space Rock",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 23,
+            "source": "Jazz Surf Rock",
+            "target": "Dream Pop"
+        },
+        {
+            "weight": 12,
+            "source": "Jazz Surf Rock",
+            "target": "Space Rock"
+        },
+        {
+            "weight": 19,
+            "source": "Jazz Surf Rock",
+            "target": "Alternative Rock"
+        },
+        {
+            "weight": 4,
+            "source": "Jazz Surf Rock",
+            "target": "Post-Apocalyptic Folk"
+        },
+        {
+            "weight": 26,
+            "source": "Jazz Surf Rock",
+            "target": "Indie Folk"
+        },
+        {
+            "weight": 16,
+            "source": "Jazz Surf Rock",
+            "target": "Synthwave"
+        },
+        {
+            "weight": 12,
+            "source": "Jazz Surf Rock",
+            "target": "Lo-Fi Electronica"
+        },
+        {
+            "weight": 11,
+            "source": "Jazz Surf Rock",
+            "target": "Americana"
+        },
+        {
+            "weight": 5,
+            "source": "Jazz Surf Rock",
+            "target": "Blues Rock"
+        },
+        {
+            "weight": 11,
+            "source": "Jazz Surf Rock",
+            "target": "Doom Metal"
+        },
+        {
+            "weight": 4,
+            "source": "Jazz Surf Rock",
+            "target": "Southern Gothic Rock"
+        },
+        {
+            "weight": 6,
+            "source": "Jazz Surf Rock",
+            "target": "Psychedelic Rock"
+        },
+        {
+            "weight": 12,
+            "source": "Jazz Surf Rock",
+            "target": "Desert Rock"
+        },
+        {
+            "weight": 11,
+            "source": "Jazz Surf Rock",
+            "target": "Oceanus Folk"
+        },
+        {
+            "weight": 3,
+            "source": "Jazz Surf Rock",
+            "target": "Symphonic Metal"
+        },
+        {
+            "weight": 5,
+            "source": "Jazz Surf Rock",
+            "target": "Indie Rock"
+        },
+        {
+            "weight": 2,
+            "source": "Jazz Surf Rock",
+            "target": "Darkwave"
+        },
+        {
+            "weight": 2,
+            "source": "Jazz Surf Rock",
+            "target": "Avant-Garde Folk"
+        },
+        {
+            "weight": 1,
+            "source": "Jazz Surf Rock",
+            "target": "Synthpop"
+        },
+        {
+            "weight": 1,
+            "source": "Jazz Surf Rock",
+            "target": "Emo/Pop Punk"
+        },
+        {
+            "weight": 1,
+            "source": "Jazz Surf Rock",
+            "target": "Indie Pop"
+        }
+    ]
+}
