@@ -469,7 +469,7 @@ function renderSecondaryVisualization(data2) {
   // SELECTOR CON TÍTULO "Select artist"
   // ───────────────────────────────────────────────
   const dropdownTitle = document.createElement("div");
-  dropdownTitle.textContent = "Select artist";
+  dropdownTitle.textContent = "Select genere";
   dropdownTitle.style.fontSize = "20px";
   dropdownTitle.style.marginTop = "25px";
   dropdownTitle.style.marginBottom = "10px";
