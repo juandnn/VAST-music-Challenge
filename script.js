@@ -11,10 +11,29 @@ d3.json("genre_influence_graph.json").then(data => {
 // FUNCIÓN PRINCIPAL QUE DIBUJA LA VISUALIZACIÓN
 // -------------------------------------------------------------
 function renderInfluenceGraph(data) {
-  const width = 1200;
-  const height = 850;
 
-  // ---- 32-COLOR PALETTE ----
+  // -------------------------------------------------------------
+  // CONTENEDOR PRINCIPAL tipo "renderSecondaryVisualization"
+  // -------------------------------------------------------------
+  const container = document.createElement("div");
+  container.style.width = "100%";
+  container.style.background = "#0e0e0e";
+  container.style.color = "white";
+  container.style.border = "1px solid #333";
+  container.style.borderRadius = "12px";
+  container.style.padding = "25px 30px 40px 30px";
+  container.style.boxShadow = "0px 0px 25px rgba(0,0,0,0.45)";
+  container.style.marginTop = "40px";
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.alignItems = "center";
+
+  // -------------------------------------------------------------
+  // SVG ORIGINAL
+  // -------------------------------------------------------------
+  const width = 1200;
+  const height = 700;
+
   const color = d3.scaleOrdinal([
     "#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D",
     "#6A4C93", "#F06595", "#2EC4B6", "#E36414",
@@ -33,20 +52,19 @@ function renderInfluenceGraph(data) {
   const svg = d3.create("svg")
       .attr("width", width)
       .attr("height", height)
-      .style("background", "#0e0e0e")
-      .style("border", "1px solid #444")
+      .style("background", "#111")
+      .style("border-radius", "12px")
+      .style("border", "2px solid #555")
       .style("font-family", "SF Pro Rounded, sans-serif");
 
-  // referencia a dropdown (se rellena luego)
-  let dropdown;
+  container.appendChild(svg.node());
+
   let selectedNode = null;
 
-  // click en fondo → reset
   svg.on("click", (event) => {
-    // solo si el target ES el propio svg (no nodos, no dropdown, etc.)
     if (event.target === svg.node()) {
       resetHighlight();
-      selectGenre(""); // reset en la lista
+      genreDropdown.value = "";
     }
   });
 
@@ -59,7 +77,6 @@ function renderInfluenceGraph(data) {
       .style("font-weight", "bold")
       .text("Influenced By Network");
 
-  // ---- TOOLTIP ----
   const tooltip = d3.select(document.body)
       .append("div")
       .style("position", "absolute")
@@ -71,7 +88,6 @@ function renderInfluenceGraph(data) {
       .style("opacity", 0)
       .style("font-family", "SF Pro Rounded");
 
-  // ---- SIMULATION ----
   const simulation = d3.forceSimulation(data.nodes)
       .force("link", d3.forceLink(data.links)
             .id(d => d.id)
@@ -81,7 +97,6 @@ function renderInfluenceGraph(data) {
       .force("center", d3.forceCenter(width / 2, height / 2))
       .force("collision", d3.forceCollide().radius(d => sizeScale(d.ArtistCount) + 12));
 
-  // ---- LINKS ----
   const link = svg.append("g")
       .attr("stroke", "#888")
       .attr("stroke-opacity", 0.7)
@@ -90,7 +105,6 @@ function renderInfluenceGraph(data) {
       .join("line")
       .attr("stroke-width", d => Math.sqrt(d.weight));
 
-  // ---- NODES ----
   const node = svg.append("g")
       .selectAll("circle")
       .data(data.nodes)
@@ -100,13 +114,13 @@ function renderInfluenceGraph(data) {
       .attr("stroke", "#fff")
       .attr("stroke-width", 1.5)
       .on("click", (event, d) => {
-        event.stopPropagation();  // no disparar click del fondo
+        event.stopPropagation();
         highlightReverse(d);
         selectNode(d);
+        genreDropdown.value = d.Genre;
       })
       .call(drag(simulation));
 
-  // ---- LABELS ----
   const labels = svg.append("g")
       .selectAll("text")
       .data(data.nodes)
@@ -117,7 +131,6 @@ function renderInfluenceGraph(data) {
       .style("pointer-events", "none")
       .text(d => d.Genre);
 
-  // ---- TOOLTIP EVENTS ----
   node.on("mouseover", (event, d) => {
     tooltip.style("opacity", 1).html(`
       <strong>${d.Genre}</strong><br>
@@ -130,29 +143,15 @@ function renderInfluenceGraph(data) {
            .style("top", event.pageY + 10 + "px");
   }).on("mouseout", () => tooltip.style("opacity", 0));
 
-  // -------------------------------------------------------------------
-  // 🔄 SELECCIÓN NODO / GÉNERO (SINCRONIZACIÓN)
-  // -------------------------------------------------------------------
-
   function selectNode(d) {
     selectedNode = d;
-    selectGenre(d.Genre);
 
     node
       .attr("stroke", n => n.id === d.id ? "lime" : "#fff")
       .attr("stroke-width", n => n.id === d.id ? 4 : 1.5);
   }
 
-  function selectGenre(genre) {
-    if (!dropdown) return;
-    dropdown.node().value = genre;
-  }
-
-  // -------------------------------------------------------------------
-  // 🔄 HIGHLIGHT INVERSO
-  // -------------------------------------------------------------------
   function highlightReverse(selected) {
-
     node.transition().duration(300)
       .style("opacity", d =>
         d.id === selected.id ||
@@ -193,8 +192,6 @@ function renderInfluenceGraph(data) {
         .style("stroke", "#888");
   }
 
-  // -------------------------------------------------------------------
-  // ---- DRAG ----
   function drag(sim) {
     function dragstarted(event) {
       if (!event.active) sim.alphaTarget(0.2).restart();
@@ -216,68 +213,6 @@ function renderInfluenceGraph(data) {
         .on("end", dragended);
   }
 
-  // -------------------------------------------------------------------
-  // ------------------------- DROPDOWN DE GÉNEROS ---------------------
-  // -------------------------------------------------------------------
-  const allGenres = Array.from(new Set(data.nodes.map(d => d.Genre))).sort();
-
-  const dropdownWrapper = svg.append("foreignObject")
-    .attr("x", width - 260)
-    .attr("y", 90)
-    .attr("width", 230)
-    .attr("height", 80);
-
-  const dropdownDiv = dropdownWrapper.append("xhtml:div")
-    .style("width", "230px")
-    .style("color", "white")
-    .style("font-family", "SF Pro Rounded")
-    .style("padding", "5px");
-
-  dropdownDiv.append("div")
-    .style("font-weight", "bold")
-    .style("margin-bottom", "6px")
-    .text("Select Genre");
-
-  dropdown = dropdownDiv.append("select")
-    .style("width", "200px")
-    .style("padding", "6px")
-    .style("border-radius", "6px")
-    .style("background", "#111")
-    .style("color", "white")
-    .style("border", "1px solid #555")
-    .on("click", (event) => {
-      // muy importante: que el click en el select NO reseteé el gráfico
-      event.stopPropagation();
-    })
-    .on("change", (event) => {
-      event.stopPropagation();  // igual aquí
-      const genre = event.target.value;
-
-      if (!genre) {
-        resetHighlight();
-        return;
-      }
-
-      const nodeObj = data.nodes.find(n => n.Genre === genre);
-      if (nodeObj) {
-        highlightReverse(nodeObj);
-        selectNode(nodeObj);
-      }
-    });
-
-  dropdown.append("option").attr("value", "").text("— All genres —");
-
-  dropdown.selectAll("option.genre")
-    .data(allGenres)
-    .enter()
-    .append("option")
-    .attr("class", "genre")
-    .attr("value", d => d)
-    .text(d => d);
-
-  // -------------------------------------------------------------------
-  // SIMULATION TICK
-  // -------------------------------------------------------------------
   simulation.on("tick", () => {
     link.attr("x1", d => d.source.x)
         .attr("y1", d => d.source.y)
@@ -291,8 +226,60 @@ function renderInfluenceGraph(data) {
           .attr("y", d => d.y);
   });
 
-  return svg.node();
+  // -------------------------------------------------------------
+  // SELECTOR EXTERNO (como en la segunda gráfica)
+  // -------------------------------------------------------------
+  const dropdownTitle = document.createElement("div");
+  dropdownTitle.textContent = "Select Genre";
+  dropdownTitle.style.fontSize = "20px";
+  dropdownTitle.style.marginTop = "25px";
+  dropdownTitle.style.marginBottom = "10px";
+  dropdownTitle.style.fontWeight = "600";
+  dropdownTitle.style.color = "white";
+  dropdownTitle.style.textAlign = "center";
+  container.appendChild(dropdownTitle);
+
+  const dropdownWrapper = document.createElement("div");
+  dropdownWrapper.style.display = "flex";
+  dropdownWrapper.style.justifyContent = "center";
+
+  const genreDropdown = document.createElement("select");
+  genreDropdown.style.padding = "8px";
+  genreDropdown.style.fontSize = "14px";
+  genreDropdown.style.background = "#111";
+  genreDropdown.style.color = "white";
+  genreDropdown.style.border = "1px solid #555";
+  genreDropdown.style.borderRadius = "6px";
+  genreDropdown.style.minWidth = "200px";
+
+  const allGenres = Array.from(new Set(data.nodes.map(d => d.Genre))).sort();
+
+  genreDropdown.innerHTML = `
+    <option value="">— All genres —</option>
+    ${allGenres.map(g => `<option value="${g}">${g}</option>`).join("")}
+  `;
+
+  dropdownWrapper.appendChild(genreDropdown);
+  container.appendChild(dropdownWrapper);
+
+  genreDropdown.addEventListener("change", () => {
+    const genre = genreDropdown.value;
+
+    if (!genre) {
+      resetHighlight();
+      return;
+    }
+
+    const nodeObj = data.nodes.find(n => n.Genre === genre);
+    if (nodeObj) {
+      highlightReverse(nodeObj);
+      selectNode(nodeObj);
+    }
+  });
+
+  return container;
 }
+
 
 
 
@@ -314,18 +301,24 @@ function renderSecondaryVisualization(data2) {
   // Lista de géneros
   const genres = Array.from(new Set(artists.map(d => d.PrincipalGenre))).sort();
 
-  // Colores vibrantes sobre fondo oscuro
+  // Colores
   const color = d3.scaleOrdinal([
-    "#4CC9F0", "#F72585", "#7209B7", "#3A0CA3", "#4361EE",
-    "#4895EF", "#FF9F1C", "#F77F00", "#E63946", "#80ED99"
+    "#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D",
+    "#6A4C93", "#F06595", "#2EC4B6", "#E36414",
+    "#9B5DE5", "#00BBF9", "#F15BB5", "#00F5D4",
+    "#A7C957", "#FF9F1C", "#5E60CE", "#48BFE3",
+    "#56CFE1", "#64DFDF", "#80FFDB", "#FF5D8F",
+    "#F4A261", "#E76F51", "#2A9D8F", "#8AB17D",
+    "#B56576", "#6D597A", "#355070", "#588157",
+    "#43AA8B", "#FFBD00", "#E63946", "#1D3557"
   ]);
 
-  // --- Contenedor principal ---
+  // Contenedor principal
   const container = document.createElement("div");
   container.style.width = "100%";
   container.style.background = "#0e0e0e";
   container.style.color = "white";
-  container.style.border = "1px solid #333";
+  container.style.border = "2px solid #333";
   container.style.borderRadius = "12px";
   container.style.padding = "25px 30px 40px 30px";
   container.style.boxShadow = "0px 0px 25px rgba(0,0,0,0.45)";
@@ -334,7 +327,7 @@ function renderSecondaryVisualization(data2) {
   container.style.flexDirection = "column";
   container.style.alignItems = "center";
 
-  // --- SVG ---
+  // SVG
   const width = 1100;
   const height = 550;
   const margin = { top: 70, right: 20, bottom: 150, left: 90 };
@@ -343,13 +336,12 @@ function renderSecondaryVisualization(data2) {
     .attr("width", width)
     .attr("height", height)
     .style("background", "#111")
-    .style("border-radius", "12px");
+    .style("border-radius", "12px")
+    .style("border", "2px solid #555");;
 
   container.appendChild(svg.node());
 
-  // ───────────────────────────────────────────────
-  // Tooltip DARK
-  // ───────────────────────────────────────────────
+  // Tooltip
   const tooltip = document.createElement("div");
   tooltip.style.position = "absolute";
   tooltip.style.background = "#222";
@@ -360,13 +352,12 @@ function renderSecondaryVisualization(data2) {
   tooltip.style.pointerEvents = "none";
   tooltip.style.fontSize = "13px";
   tooltip.style.opacity = 0;
-  tooltip.style.transition = "opacity 0.12s ease";
+  tooltip.style.transition = "opacity 0.2s ease";
   tooltip.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.45)";
-
   document.body.appendChild(tooltip);
 
   // ───────────────────────────────────────────────
-  // Dibujar gráfico
+  // FUNCIÓN PARA DIBUJAR EL GRÁFICO
   // ───────────────────────────────────────────────
   function drawChart(genreFilter) {
     svg.selectAll("*").remove();
@@ -388,32 +379,40 @@ function renderSecondaryVisualization(data2) {
       .nice()
       .range([height - margin.bottom, margin.top]);
 
-    // Barras
+    // Barras con animación
     svg.append("g")
       .selectAll("rect")
       .data(filtered)
       .join("rect")
-        .attr("x", d => x(d.name))
-        .attr("y", d => y(d.Influence))
-        .attr("width", x.bandwidth())
-        .attr("height", d => y(0) - y(d.Influence))
-        .attr("fill", d => color(d.PrincipalGenre))
-        .attr("opacity", 0.9)
-        .on("mouseover", (event, d) => {
-          tooltip.style.opacity = 1;
-          tooltip.innerHTML = `
-            <strong>${d.name}</strong><br>
-            Canciones exitosas: ${d.Influence}<br>
-            Género: ${d.PrincipalGenre}
-          `;
-        })
-        .on("mousemove", (event) => {
-          tooltip.style.left = event.pageX + 12 + "px";
-          tooltip.style.top = event.pageY + 12 + "px";
-        })
-        .on("mouseout", () => tooltip.style.opacity = 0);
+      .attr("x", d => x(d.name))
+      .attr("width", x.bandwidth())
+      .attr("fill", d => color(d.PrincipalGenre))
+      .attr("opacity", 0.9)
+      .attr("y", y(0))               // INICIA DESDE CERO
+      .attr("height", 0)             // ALTURA 0
+      .transition()
+      .duration(900)
+      .ease(d3.easeCubicOut)
+      .attr("y", d => y(d.Influence))
+      .attr("height", d => y(0) - y(d.Influence));
 
-    // Eje X — leyenda "Artista"
+    // Eventos del tooltip
+    svg.selectAll("rect")
+      .on("mouseover", (event, d) => {
+        tooltip.style.opacity = 1;
+        tooltip.innerHTML = `
+          <strong>${d.name}</strong><br>
+          Canciones exitosas: ${d.Influence}<br>
+          Género: ${d.PrincipalGenre}
+        `;
+      })
+      .on("mousemove", (event) => {
+        tooltip.style.left = event.pageX + 12 + "px";
+        tooltip.style.top = event.pageY + 12 + "px";
+      })
+      .on("mouseout", () => tooltip.style.opacity = 0);
+
+    // Eje X
     svg.append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
       .call(d3.axisBottom(x))
@@ -425,13 +424,14 @@ function renderSecondaryVisualization(data2) {
 
     svg.append("text")
       .attr("x", width / 2)
-      .attr("y", height - margin.bottom + 90)
+      .attr("y", height - margin.bottom + 100)
       .attr("text-anchor", "middle")
       .style("fill", "white")
       .style("font-size", "16px")
-      .text("Artista");
+      .style("text-anchor", "middle")
+      .text("Artist");
 
-    // Eje Y — leyenda “Número de canciones exitosas”
+    // Eje Y
     svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(y))
@@ -446,13 +446,13 @@ function renderSecondaryVisualization(data2) {
       .style("fill", "white")
       .style("font-size", "16px")
       .style("text-anchor", "middle")
-      .text("Número de canciones exitosas");
+      .text("Number of successful songs influenced");
 
     // Ejes blancos
     svg.selectAll(".domain, .tick line")
       .style("stroke", "#666");
 
-    // Título
+    // Título del gráfico
     svg.append("text")
       .attr("x", width / 2)
       .attr("y", margin.top - 35)
@@ -460,16 +460,25 @@ function renderSecondaryVisualization(data2) {
       .style("font-size", "26px")
       .style("font-weight", "600")
       .style("fill", "white")
-      .text(`Top 15 Influencia por Artista — ${genreFilter}`);
+      .text(`Top 15 Successful Songs Influenced By An Artist — ${genreFilter}`);
   }
 
   drawChart("All");
 
   // ───────────────────────────────────────────────
-  // SELECTOR ABAJO DEL GRÁFICO
+  // SELECTOR CON TÍTULO "Select artist"
   // ───────────────────────────────────────────────
+  const dropdownTitle = document.createElement("div");
+  dropdownTitle.textContent = "Select artist";
+  dropdownTitle.style.fontSize = "20px";
+  dropdownTitle.style.marginTop = "25px";
+  dropdownTitle.style.marginBottom = "10px";
+  dropdownTitle.style.fontWeight = "600";
+  dropdownTitle.style.color = "white";
+  dropdownTitle.style.textAlign = "center";
+  container.appendChild(dropdownTitle);
+
   const dropdownWrapper = document.createElement("div");
-  dropdownWrapper.style.marginTop = "25px";
   dropdownWrapper.style.display = "flex";
   dropdownWrapper.style.justifyContent = "center";
 
@@ -483,7 +492,7 @@ function renderSecondaryVisualization(data2) {
   dropdown.style.minWidth = "200px";
 
   dropdown.innerHTML = `
-    <option value="All">Todos los géneros</option>
+    <option value="All">— All genres —</option>
     ${genres.map(g => `<option value="${g}">${g}</option>`).join("")}
   `;
 
