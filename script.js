@@ -503,3 +503,342 @@ function renderSecondaryVisualization(data2) {
 
   return container;
 }
+
+
+
+// -------------------------------------------------------------
+// Cargar datos agregados y montar la visualización en #viz
+// Espera un JSON tipo:
+// [
+//   { "label": "Aurora Records", "genre": "Dream Pop", "year": 2010, "hits": 3 },
+//   { "label": "Aurora Records", "genre": "Dream Pop", "year": 2011, "hits": 5 },
+//   ...
+// ]
+// -------------------------------------------------------------
+d3.json("label_hits_by_genre_year.json").then(data => {
+  const vizNode = renderLabelHitsScatter(data);
+  document.getElementById("viz3").appendChild(vizNode);
+});
+
+
+// -------------------------------------------------------------
+// FUNCIÓN PRINCIPAL: Scatter (años vs éxitos por sello)
+// -------------------------------------------------------------
+function renderLabelHitsScatter(rawData) {
+  // Normalizar datos
+  const data = rawData
+    .map(d => ({
+      label: d.label,
+      genre: d.genre,
+      year: +d.year,
+      hits: +d.hits
+    }))
+    .filter(d => d.label && d.genre && !isNaN(d.year) && !isNaN(d.hits));
+
+  // -----------------------------------------------------------
+  // Contenedor principal (mismo estilo que tu otra visual)
+  // -----------------------------------------------------------
+  const container = document.createElement("div");
+  container.style.width = "100%";
+  container.style.background = "#0e0e0e";
+  container.style.color = "white";
+  container.style.border = "1px solid #333";
+  container.style.borderRadius = "12px";
+  container.style.padding = "25px 30px 40px 30px";
+  container.style.boxShadow = "0px 0px 25px rgba(0,0,0,0.45)";
+  container.style.marginTop = "40px";
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.alignItems = "center";
+  container.style.fontFamily = "SF Pro Rounded, system-ui, sans-serif";
+
+  // -----------------------------------------------------------
+  // Título y descripción corta
+  // -----------------------------------------------------------
+  const title = document.createElement("div");
+  title.textContent = "Record labels by year and number of hits";
+  title.style.fontSize = "24px";
+  title.style.fontWeight = "700";
+  title.style.marginBottom = "4px";
+  container.appendChild(title);
+
+  const subtitle = document.createElement("div");
+  subtitle.textContent =
+    "Cada punto es un sello en un año, filtrado por género. El eje X son los años y el eje Y los éxitos (canciones/álbumes notables).";
+  subtitle.style.fontSize = "14px";
+  subtitle.style.color = "#ccc";
+  subtitle.style.marginBottom = "18px";
+  subtitle.style.textAlign = "center";
+  container.appendChild(subtitle);
+
+  // -----------------------------------------------------------
+  // SVG y escalas base
+  // -----------------------------------------------------------
+  const width = 1100;
+  const height = 520;
+  const margin = { top: 50, right: 220, bottom: 60, left: 80 };
+
+  const svg = d3
+    .create("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .style("background", "#111")
+    .style("border-radius", "12px")
+    .style("border", "2px solid #555");
+
+  container.appendChild(svg.node());
+
+  const plotArea = svg.append("g");
+
+  const x = d3.scaleLinear().range([margin.left, width - margin.right]);
+  const y = d3.scaleLinear().range([height - margin.bottom, margin.top]);
+
+  const xAxisG = svg
+    .append("g")
+    .attr("transform", `translate(0, ${height - margin.bottom})`);
+
+  const yAxisG = svg
+    .append("g")
+    .attr("transform", `translate(${margin.left}, 0)`);
+
+  const color = d3.scaleOrdinal([
+    "#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D",
+    "#6A4C93", "#F06595", "#2EC4B6", "#E36414",
+    "#9B5DE5", "#00BBF9", "#F15BB5", "#00F5D4",
+    "#A7C957", "#FF9F1C", "#5E60CE", "#48BFE3",
+    "#56CFE1", "#64DFDF", "#80FFDB", "#FF5D8F",
+    "#F4A261", "#E76F51", "#2A9D8F", "#8AB17D",
+    "#B56576", "#6D597A", "#355070", "#588157",
+    "#43AA8B", "#FFBD00", "#E63946", "#1D3557"
+  ]);
+
+  const rScale = d3
+    .scaleSqrt()
+    .range([4, 16]); // radio según número de hits
+
+  const pointsLayer = plotArea.append("g");
+
+  // -----------------------------------------------------------
+  // Tooltip
+  // -----------------------------------------------------------
+  const tooltip = d3
+    .select(document.body)
+    .append("div")
+    .style("position", "absolute")
+    .style("background", "#222")
+    .style("color", "#fff")
+    .style("padding", "10px 14px")
+    .style("border-radius", "8px")
+    .style("pointer-events", "none")
+    .style("opacity", 0)
+    .style("font-size", "13px")
+    .style("box-shadow", "0 0 12px rgba(0,0,0,0.5)")
+    .style("z-index", 9999);
+
+  // -----------------------------------------------------------
+  // Ejes: etiquetas
+  // -----------------------------------------------------------
+  svg
+    .append("text")
+    .attr("x", width / 2)
+    .attr("y", height - margin.bottom + 40)
+    .attr("text-anchor", "middle")
+    .style("fill", "white")
+    .style("font-size", "16px")
+    .text("Año (lanzamiento / notoriedad)");
+
+  svg
+    .append("text")
+    .attr("x", -(height / 2))
+    .attr("y", 30)
+    .attr("transform", "rotate(-90)")
+    .style("fill", "white")
+    .style("font-size", "16px")
+    .style("text-anchor", "middle")
+    .text("Número de éxitos del sello");
+
+  // -----------------------------------------------------------
+  // Controles externos (género + sello)
+  // -----------------------------------------------------------
+  const controlsWrapper = document.createElement("div");
+  controlsWrapper.style.display = "flex";
+  controlsWrapper.style.gap = "20px";
+  controlsWrapper.style.marginTop = "20px";
+  controlsWrapper.style.justifyContent = "center";
+  container.appendChild(controlsWrapper);
+
+  const genres = Array.from(new Set(data.map(d => d.genre))).sort();
+  const labels = Array.from(new Set(data.map(d => d.label))).sort();
+
+  function createLabeledSelect(labelText) {
+    const wrapper = document.createElement("div");
+    wrapper.style.display = "flex";
+    wrapper.style.flexDirection = "column";
+    wrapper.style.alignItems = "flex-start";
+
+    const lab = document.createElement("span");
+    lab.textContent = labelText;
+    lab.style.marginBottom = "6px";
+    lab.style.fontSize = "14px";
+    lab.style.color = "#eee";
+    lab.style.fontWeight = "600";
+
+    const select = document.createElement("select");
+    select.style.padding = "8px";
+    select.style.fontSize = "14px";
+    select.style.background = "#111";
+    select.style.color = "white";
+    select.style.border = "1px solid #555";
+    select.style.borderRadius = "6px";
+    select.style.minWidth = "220px";
+
+    wrapper.appendChild(lab);
+    wrapper.appendChild(select);
+    controlsWrapper.appendChild(wrapper);
+
+    return select;
+  }
+
+  const genreSelect = createLabeledSelect("Filtrar por género");
+  genreSelect.innerHTML =
+    `<option value="">— Todos los géneros —</option>` +
+    genres.map(g => `<option value="${g}">${g}</option>`).join("");
+
+  const labelSelect = createLabeledSelect("Resaltar sello");
+  labelSelect.innerHTML =
+    `<option value="">— Ningún sello específico —</option>` +
+    labels.map(l => `<option value="${l}">${l}</option>`).join("");
+
+  // -----------------------------------------------------------
+  // Lógica de filtrado y resaltado
+  // -----------------------------------------------------------
+  let selectedLabel = null;
+
+  genreSelect.addEventListener("change", () => {
+    // al cambiar género, limpiamos selección de sello
+    selectedLabel = null;
+    labelSelect.value = "";
+    updateChart();
+  });
+
+  labelSelect.addEventListener("change", () => {
+    selectedLabel = labelSelect.value || null;
+    updateHighlight();
+  });
+
+  svg.on("click", event => {
+    if (event.target === svg.node()) {
+      selectedLabel = null;
+      labelSelect.value = "";
+      updateHighlight();
+    }
+  });
+
+  function updateChart() {
+    const currentGenre = genreSelect.value;
+    const filtered = data.filter(
+      d => !currentGenre || d.genre === currentGenre
+    );
+
+    if (!filtered.length) {
+      x.domain([0, 1]);
+      y.domain([0, 1]);
+    } else {
+      const yearExtent = d3.extent(filtered, d => d.year);
+      x.domain([yearExtent[0] - 0.5, yearExtent[1] + 0.5]);
+
+      const maxHits = d3.max(filtered, d => d.hits);
+      y.domain([0, maxHits]).nice();
+      rScale.domain([1, maxHits || 1]);
+    }
+
+    const xAxis = d3
+      .axisBottom(x)
+      .ticks(10)
+      .tickFormat(d3.format("d"));
+    const yAxis = d3.axisLeft(y).ticks(6);
+
+    xAxisG.call(xAxis);
+    yAxisG.call(yAxis);
+
+    // Estilo de ejes en modo oscuro
+    svg.selectAll(".domain, .tick line").style("stroke", "#666");
+    svg.selectAll(".tick text").style("fill", "#ddd");
+
+    // Join de puntos
+    const circles = pointsLayer
+      .selectAll("circle")
+      .data(filtered, d => d.label + "-" + d.year);
+
+    circles
+      .enter()
+      .append("circle")
+      .attr("cx", d => x(d.year))
+      .attr("cy", d => y(d.hits))
+      .attr("r", d => rScale(d.hits))
+      .attr("fill", d => color(d.label))
+      .attr("opacity", 0.9)
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 1)
+      .on("mouseover", (event, d) => {
+        tooltip
+          .style("opacity", 1)
+          .html(
+            `<strong>${d.label}</strong><br>
+             Género: ${d.genre}<br>
+             Año: ${d.year}<br>
+             Éxitos en ese año: ${d.hits}`
+          );
+      })
+      .on("mousemove", event => {
+        tooltip
+          .style("left", event.pageX + 15 + "px")
+          .style("top", event.pageY + 12 + "px");
+      })
+      .on("mouseout", () => tooltip.style("opacity", 0))
+      .on("click", (event, d) => {
+        event.stopPropagation();
+        selectedLabel = d.label;
+        labelSelect.value = d.label;
+        updateHighlight();
+      })
+      .transition()
+      .duration(500)
+      .attr("opacity", 0.9);
+
+    circles
+      .transition()
+      .duration(500)
+      .attr("cx", d => x(d.year))
+      .attr("cy", d => y(d.hits))
+      .attr("r", d => rScale(d.hits))
+      .attr("fill", d => color(d.label));
+
+    circles.exit().transition().duration(300).attr("opacity", 0).remove();
+
+    updateHighlight();
+  }
+
+  function updateHighlight() {
+    const circles = pointsLayer.selectAll("circle");
+    if (!selectedLabel) {
+      circles
+        .transition()
+        .duration(250)
+        .attr("opacity", 0.9)
+        .attr("stroke-width", 1);
+    } else {
+      circles
+        .transition()
+        .duration(250)
+        .attr("opacity", d => (d.label === selectedLabel ? 1 : 0.15))
+        .attr("stroke-width", d => (d.label === selectedLabel ? 3 : 1));
+    }
+  }
+
+  // Primer render
+  updateChart();
+
+  return container;
+}
+
