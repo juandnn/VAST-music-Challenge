@@ -505,21 +505,11 @@ function renderSecondaryVisualization(data2) {
 }
 
 
-
-// -------------------------------------------------------------
-// Cargar datos agregados y montar la visualización en #viz
-// Espera un JSON tipo:
-// [
-//   { "label": "Aurora Records", "genre": "Dream Pop", "year": 2010, "hits": 3 },
-//   { "label": "Aurora Records", "genre": "Dream Pop", "year": 2011, "hits": 5 },
-//   ...
-// ]
-// -------------------------------------------------------------
+// Cargar datos y montar la visualización en #viz
 d3.json("label_hits_by_genre_year.json").then(data => {
   const vizNode = renderLabelHitsScatter(data);
-  document.getElementById("viz3").appendChild(vizNode);
+  document.getElementById("viz").appendChild(vizNode);
 });
-
 
 // -------------------------------------------------------------
 // FUNCIÓN PRINCIPAL: Scatter (años vs éxitos por sello)
@@ -535,8 +525,13 @@ function renderLabelHitsScatter(rawData) {
     }))
     .filter(d => d.label && d.genre && !isNaN(d.year) && !isNaN(d.hits));
 
+  // Años globales (para el filtro)
+  const allYears = Array.from(new Set(data.map(d => d.year))).sort((a, b) => a - b);
+  const globalMinYear = allYears[0];
+  const globalMaxYear = allYears[allYears.length - 1];
+
   // -----------------------------------------------------------
-  // Contenedor principal (mismo estilo que tu otra visual)
+  // Contenedor principal
   // -----------------------------------------------------------
   const container = document.createElement("div");
   container.style.width = "100%";
@@ -564,7 +559,7 @@ function renderLabelHitsScatter(rawData) {
 
   const subtitle = document.createElement("div");
   subtitle.textContent =
-    "Cada punto es un sello en un año, filtrado por género. El eje X son los años y el eje Y los éxitos (canciones/álbumes notables).";
+    "Cada punto es un sello en un año, filtrado por género, rango de años y sello. El eje X son los años y el eje Y los éxitos (canciones/álbumes notables).";
   subtitle.style.fontSize = "14px";
   subtitle.style.color = "#ccc";
   subtitle.style.marginBottom = "18px";
@@ -658,13 +653,14 @@ function renderLabelHitsScatter(rawData) {
     .text("Número de éxitos del sello");
 
   // -----------------------------------------------------------
-  // Controles externos (género + sello)
+  // Controles externos (género + sello + rango de años)
   // -----------------------------------------------------------
   const controlsWrapper = document.createElement("div");
   controlsWrapper.style.display = "flex";
   controlsWrapper.style.gap = "20px";
   controlsWrapper.style.marginTop = "20px";
   controlsWrapper.style.justifyContent = "center";
+  controlsWrapper.style.flexWrap = "wrap";
   container.appendChild(controlsWrapper);
 
   const genres = Array.from(new Set(data.map(d => d.genre))).sort();
@@ -690,7 +686,7 @@ function renderLabelHitsScatter(rawData) {
     select.style.color = "white";
     select.style.border = "1px solid #555";
     select.style.borderRadius = "6px";
-    select.style.minWidth = "220px";
+    select.style.minWidth = "180px";
 
     wrapper.appendChild(lab);
     wrapper.appendChild(select);
@@ -709,13 +705,24 @@ function renderLabelHitsScatter(rawData) {
     `<option value="">— Ningún sello específico —</option>` +
     labels.map(l => `<option value="${l}">${l}</option>`).join("");
 
+  const yearFromSelect = createLabeledSelect("Año desde");
+  yearFromSelect.innerHTML =
+    `<option value="">— Mínimo (${globalMinYear}) —</option>` +
+    allYears.map(y => `<option value="${y}">${y}</option>`).join("");
+
+  const yearToSelect = createLabeledSelect("Año hasta");
+  yearToSelect.innerHTML =
+    `<option value="">— Máximo (${globalMaxYear}) —</option>` +
+    allYears.map(y => `<option value="${y}">${y}</option>`).join("");
+
   // -----------------------------------------------------------
   // Lógica de filtrado y resaltado
   // -----------------------------------------------------------
   let selectedLabel = null;
+  let selectedYearFrom = null;
+  let selectedYearTo = null;
 
   genreSelect.addEventListener("change", () => {
-    // al cambiar género, limpiamos selección de sello
     selectedLabel = null;
     labelSelect.value = "";
     updateChart();
@@ -724,6 +731,16 @@ function renderLabelHitsScatter(rawData) {
   labelSelect.addEventListener("change", () => {
     selectedLabel = labelSelect.value || null;
     updateHighlight();
+  });
+
+  yearFromSelect.addEventListener("change", () => {
+    selectedYearFrom = yearFromSelect.value ? +yearFromSelect.value : null;
+    updateChart();
+  });
+
+  yearToSelect.addEventListener("change", () => {
+    selectedYearTo = yearToSelect.value ? +yearToSelect.value : null;
+    updateChart();
   });
 
   svg.on("click", event => {
@@ -736,17 +753,28 @@ function renderLabelHitsScatter(rawData) {
 
   function updateChart() {
     const currentGenre = genreSelect.value;
+
+    let from = selectedYearFrom != null ? selectedYearFrom : globalMinYear;
+    let to = selectedYearTo != null ? selectedYearTo : globalMaxYear;
+    if (from > to) {
+      const tmp = from;
+      from = to;
+      to = tmp;
+    }
+
     const filtered = data.filter(
-      d => !currentGenre || d.genre === currentGenre
+      d =>
+        (!currentGenre || d.genre === currentGenre) &&
+        d.year >= from &&
+        d.year <= to
     );
 
+    // Dominios de ejes basados en el rango elegido
+    x.domain([from - 0.5, to + 0.5]);
     if (!filtered.length) {
-      x.domain([0, 1]);
       y.domain([0, 1]);
+      rScale.domain([1, 1]);
     } else {
-      const yearExtent = d3.extent(filtered, d => d.year);
-      x.domain([yearExtent[0] - 0.5, yearExtent[1] + 0.5]);
-
       const maxHits = d3.max(filtered, d => d.hits);
       y.domain([0, maxHits]).nice();
       rScale.domain([1, maxHits || 1]);
@@ -761,16 +789,15 @@ function renderLabelHitsScatter(rawData) {
     xAxisG.call(xAxis);
     yAxisG.call(yAxis);
 
-    // Estilo de ejes en modo oscuro
     svg.selectAll(".domain, .tick line").style("stroke", "#666");
     svg.selectAll(".tick text").style("fill", "#ddd");
 
-    // Join de puntos
-    const circles = pointsLayer
-      .selectAll("circle")
-      .data(filtered, d => d.label + "-" + d.year);
+    // Borrar todos los puntos anteriores y dibujar solo los filtrados
+    pointsLayer.selectAll("circle").remove();
 
-    circles
+    pointsLayer
+      .selectAll("circle")
+      .data(filtered)
       .enter()
       .append("circle")
       .attr("cx", d => x(d.year))
@@ -801,20 +828,7 @@ function renderLabelHitsScatter(rawData) {
         selectedLabel = d.label;
         labelSelect.value = d.label;
         updateHighlight();
-      })
-      .transition()
-      .duration(500)
-      .attr("opacity", 0.9);
-
-    circles
-      .transition()
-      .duration(500)
-      .attr("cx", d => x(d.year))
-      .attr("cy", d => y(d.hits))
-      .attr("r", d => rScale(d.hits))
-      .attr("fill", d => color(d.label));
-
-    circles.exit().transition().duration(300).attr("opacity", 0).remove();
+      });
 
     updateHighlight();
   }
@@ -824,21 +838,20 @@ function renderLabelHitsScatter(rawData) {
     if (!selectedLabel) {
       circles
         .transition()
-        .duration(250)
+        .duration(200)
         .attr("opacity", 0.9)
         .attr("stroke-width", 1);
     } else {
       circles
         .transition()
-        .duration(250)
+        .duration(200)
         .attr("opacity", d => (d.label === selectedLabel ? 1 : 0.15))
         .attr("stroke-width", d => (d.label === selectedLabel ? 3 : 1));
     }
   }
 
-  // Primer render
+  
   updateChart();
 
   return container;
 }
-
